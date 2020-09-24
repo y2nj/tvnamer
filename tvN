@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# TVNAMER
+# ~: tvN
+#
+# RENAMING FILE COMMAND
+# CREATED BY Y2NJ
+#
+# Designed to rename large amounts of tv
+# show names into ordered formats.
+# "Show name".S"x"E"x"."format"
+#
+# // prints a title to the screen
+
+echo "::::::::::::::::::::::"
+echo "::::::  RENAME  ::::::"
+echo "::::::::::::::::::::::"
+echo "______________________"
+
+# // asks the user to input information about the show
+
+echo "What is the Show Name? "
+read SHOW
+echo "______________________"
+
+echo "What is the Season # ? "
+read S
+echo "______________________"
+
+echo "How Many episodes? "
+read EP
+echo "______________________"
+
+echo " What is the file format? "
+read TYPE
+
+echo "______________________"
+
+# // the variable "i" is used to name the number
+# // episode next in line to be renamed.
+i=1
+
+# // creates a loop to rename each file.
+until [ $i -gt $EP ]
+
+    do
+
+        for file in * #selects the next file
+
+            do
+                  mv "$file" "$SHOW.S"$S"E0$i.$TYPE" #file formating
+
+        i=$((i+1)) #adds 1 to episode counter
+
+    done
+
+done
