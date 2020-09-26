@@ -2,7 +2,7 @@
 
 # TVNAMER
 # ~: tvN
-#
+# 
 # RENAMING FILE COMMAND
 # CREATED BY Y2NJ
 #
@@ -10,6 +10,8 @@
 # show names into ordered formats.
 # "Show name".S"x"E"x"."format"
 #
+# last update : 20200926-0124
+
 # // prints a title to the screen
 
 echo "::::::::::::::::::::::"
@@ -31,24 +33,35 @@ echo "How Many episodes? "
 read EP
 echo "______________________"
 
-echo " What is the file format? "
+echo "Which episode is it starting at?"
+read epNum
+echo "______________________"
+
+echo "What is the quality?"
+read QUAL
+echo "______________________"
+
+echo "What is the file format? "
 read TYPE
 
 echo "______________________"
 
 # // the variable "i" is used to name the number
 # // episode next in line to be renamed.
-i=1
+# // Where i is set to the begining of the episode 
+# // count in the directory to make things easier
+
+i=$epNum
 
 # // creates a loop to rename each file.
 until [ $i -gt $EP ]
 
     do
 
-        for file in * #selects the next file
+        for file in *.$TYPE #selects the next file
 
             do
-                  mv "$file" "$SHOW.S"$S"E0$i.$TYPE" #file formating
+                  mv "$file" "$SHOW.S"$S"E0$i.$QUAL.$TYPE" #file formating
 
         i=$((i+1)) #adds 1 to episode counter
 
