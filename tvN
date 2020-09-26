@@ -8,9 +8,10 @@
 #
 # Designed to rename large amounts of tv
 # show names into ordered formats.
-# "Show name".S"x"E"x"."format"
+# "Show name".S”#”E”###”.”quality”."format"
+# (i.e. Futurama.S01E001.720.mp4)
 #
-# last update : 20200926-0124
+# last update : 20200926-0144
 
 # // prints a title to the screen
 
